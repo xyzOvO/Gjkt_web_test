@@ -100,9 +100,42 @@ public class SysUserController {
     @PostMapping("/cs1")
     public ResponseResult filter(@RequestParam("cs1") String id){
         List<SysUser> sysUserList =sysUserService.lambdaQuery()
+                // 相当于whrere id = id
                 .eq(SysUser::getId,id)
                 .list();
         return ResponseResult.okResult(sysUserList);
     }
+    @PostMapping("/cs2")
+    public ResponseResult filter2(@RequestParam("cs") String id){
+        List<SysUser> sysUserList =sysUserService.lambdaQuery()
+                .between(SysUser::getId,0,id)
+                .list();
+        return ResponseResult.okResult(sysUserList);
+    }
+    @PostMapping("/cs3")
+    public ResponseResult filter3(@RequestParam("cs") String id){
+        List<SysUser> sysUserList =sysUserService.lambdaQuery()
+                // 模糊查询
+                .like(SysUser::getId,id)
+                .list();
+        return ResponseResult.okResult(sysUserList);
+    }
+    @PostMapping("/cs4")
+    public ResponseResult filter4(@RequestParam("cs") String id){
+        List<SysUser> sysUserList =sysUserService.lambdaQuery()
+                // ID降序
+                .orderByDesc(SysUser::getId)
+                .list();
+        return ResponseResult.okResult(sysUserList);
+    }
+    @PostMapping("/cs5/{id}")
+    public ResponseResult filter5(@PathVariable("id") String id){
+        List<SysUser> sysUserList =sysUserService.lambdaQuery()
+                // 大于
+                .ge(SysUser::getId,id)
+                .list();
+        return ResponseResult.okResult(sysUserList);
+    }
+
 }
 

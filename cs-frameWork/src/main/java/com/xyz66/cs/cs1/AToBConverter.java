@@ -1,4 +1,4 @@
-package com.xyz66.cs;
+package com.xyz66.cs.cs1;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
