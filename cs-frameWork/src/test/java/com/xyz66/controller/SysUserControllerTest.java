@@ -12,8 +12,13 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.Mockito.when;
 
@@ -45,5 +50,22 @@ public class SysUserControllerTest {
 //        }
         // 断言验证结果
         assert (responseResult.getData().getId().equals(sysUser.getId()));
+    }
+
+    @Test
+    @Transactional// 当该注解标注的方法抛出 Exception 类型的异常时，Spring 会回滚当前的事务。
+//    @Transactional(rollbackFor = Exception.class)
+//    @Rollback(value = false)// 关闭回滚
+//    @Commit
+    @Rollback
+    public void insertText() throws Exception {
+        SysUser sysUser = new SysUser();
+        sysUser.setUserName("cs");
+        sysUser.setAvatar("cs");
+        sysUser.setSex("1");
+        List<Long> ids = new ArrayList<>();
+        ids.add(14787164048675L);
+        ResponseResult cs = sysUserController.delete(ids);
+        System.out.println(JSON.toJSONString(cs));
     }
 }
