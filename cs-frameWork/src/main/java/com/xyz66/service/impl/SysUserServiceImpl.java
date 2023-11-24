@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xyz66.domain.entity.SysUser;
 import com.xyz66.mapper.SysUserMapper;
 import com.xyz66.service.SysUserService;
+import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * 用户表(SysUser)表服务实现类
@@ -15,6 +18,5 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
-
 }
 

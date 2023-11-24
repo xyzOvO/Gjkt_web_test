@@ -19,6 +19,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static org.mockito.Mockito.when;
 
@@ -27,7 +30,8 @@ public class SysUserControllerTest {
     @Autowired// @SpringBootTest完整启动Spring框架时，通过@Autowired完成依赖注入
     private SysUserController sysUserController;
 
-    @Mock// 创建模拟对象
+//    @Mock// 创建模拟对象
+    @Autowired
     private SysUserService sysUserService;
 
     @Test
@@ -67,5 +71,20 @@ public class SysUserControllerTest {
         ids.add(14787164048675L);
         ResponseResult cs = sysUserController.delete(ids);
         System.out.println(JSON.toJSONString(cs));
+    }
+
+    @Test
+    public void cs1(){
+        List<SysUser> list = sysUserService.lambdaQuery()
+                .list();
+        // 映射关系的使用（用户表和用户ID）
+        Map<SysUser, String> collect = list.stream()
+                .collect(Collectors.toMap(Function.identity(),SysUser::getUserName));
+        System.out.println(JSON.toJSONString(collect));
+//        System.out.println(JSON.toJSONString(list));
+    }
+    @Test 
+    public void cs2(){
+        List<Integer> cs = new ArrayList<>();
     }
 }
