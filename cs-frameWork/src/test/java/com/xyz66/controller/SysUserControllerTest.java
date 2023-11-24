@@ -113,15 +113,21 @@ public class SysUserControllerTest {
     public void cs4() {
         // 创建一个SysUserAddDTO对象
         SysUserAddDTO sysUserAddDTO = new SysUserAddDTO();
+        SysUserAddDTO sysUserAddDTO1 = new SysUserAddDTO();
         sysUserAddDTO.setId(233L);
-
+        sysUserAddDTO1.setId(111L);
         // 创建一个SysUserAddDTO对象的列表
         List<SysUserAddDTO> sysUserAddDTOList = new ArrayList<>();
         sysUserAddDTOList.add(sysUserAddDTO);
+        sysUserAddDTOList.add(sysUserAddDTO1);
 
         // 调用BeanUtils工具类的transform方法，将SysUserAddDTO对象列表转换为SysUser对象列表
         List<SysUser> transform = BeanUtils.transform(sysUserAddDTOList, SysUser.class);
-
+        transform.forEach(sysUser -> {
+            if (sysUser.getId()==233L) {
+                sysUser.setId(sysUser.getId() * 2);
+            }
+        });
         // 打印转换后的SysUser对象列表
         System.out.println(transform);
     }
