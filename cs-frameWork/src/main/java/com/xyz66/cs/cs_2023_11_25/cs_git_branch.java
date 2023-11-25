@@ -6,7 +6,7 @@ package com.xyz66.cs.cs_2023_11_25;
  */
 public class cs_git_branch {
     // git branch 分支测试
-    // 是是是是是是
+    // 是是是是是是是是
     public static void main(String[] args) {
         // 1.创建分支
         // git branch 分支名
