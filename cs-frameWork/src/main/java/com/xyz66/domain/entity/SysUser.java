@@ -1,15 +1,12 @@
 package com.xyz66.domain.entity;
 
-import java.util.Date;
-
-import java.io.Serializable;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
+import java.util.Date;
 
 /**
  * 用户表(SysUser)表实体类
@@ -21,6 +18,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @TableName("sys_user")
 public class SysUser {
     //主键@TableId

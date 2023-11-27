@@ -5,11 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xyz66.domain.ResponseResult;
 import com.xyz66.domain.entity.SysUser;
-import com.xyz66.enums.AppHttpCodeEnum;
 import com.xyz66.service.SysUserService;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.BeanUtils;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +38,7 @@ public class SysUserController {
      * @param sysUser 查询实体
      * @return 所有数据
      */
+    @ApiOperation(value = "分页查询所有数据",produces = MediaType.APPLICATION_JSON_VALUE)
     @GetMapping("/selectall")
     public ResponseResult selectAll(Page<SysUser> page, SysUser sysUser) {
         return ResponseResult.okResult(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));
