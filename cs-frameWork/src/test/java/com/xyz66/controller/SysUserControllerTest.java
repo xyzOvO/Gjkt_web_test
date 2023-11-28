@@ -2,25 +2,31 @@ package com.xyz66.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xyz66.domain.ResponseResult;
 import com.xyz66.domain.dto.SysUserAddDTO;
+import com.xyz66.domain.entity.Article;
+import com.xyz66.domain.entity.Comment;
 import com.xyz66.domain.entity.SysUser;
+import com.xyz66.service.ArticleService;
+import com.xyz66.service.CommentService;
+import com.xyz66.service.SysUserService;
 import com.xyz66.utils.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.poi.ss.formula.functions.T;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-//@SpringBootTest
+@SpringBootTest
 public class SysUserControllerTest {
     @Autowired// @SpringBootTest完整启动Spring框架时，通过@Autowired完成依赖注入
     private SysUserController sysUserController;
@@ -28,12 +34,17 @@ public class SysUserControllerTest {
     //    @Mock// 创建模拟对象
     @Autowired
     private SysUserService sysUserService;
+    
+    @Autowired
+    private ArticleService articleService;
 
+    @Autowired
+    private CommentService commentService;
     @Test
     public void testSelectOne() throws Exception {
         // 准备测试数据
         Serializable id = 1;
-        SysUser sysUser = new SysUser();
+        SysUser sysUser = null;
         sysUser.setId(1L);
         sysUser.setUserName("admain");
         // 设置mock对象行为
@@ -58,7 +69,7 @@ public class SysUserControllerTest {
 //    @Commit
     @Rollback
     public void insertText() throws Exception {
-        SysUser sysUser = new SysUser();
+        SysUser sysUser = null;
         sysUser.setUserName("cs");
         sysUser.setAvatar("cs");
         sysUser.setSex("1");
@@ -76,7 +87,7 @@ public class SysUserControllerTest {
         Map<SysUser, String> collect = list.stream()
                 .collect(Collectors.toMap(Function.identity(), SysUser::getUserName));
         System.out.println(JSON.toJSONString(collect));
-//        System.out.println(JSON.toJSONString(list));
+        System.out.println(JSON.toJSONString(list));
     }
 
     @Test
@@ -120,6 +131,38 @@ public class SysUserControllerTest {
         });
         // 打印转换后的SysUser对象列表
         System.out.println(transform);
+    }
+    
+    @Test
+    public void cs5(){
+        // 降序排序
+        List<Article> list = articleService.lambdaQuery()
+                .orderByDesc(Article::getCreateTime)
+                .list();
+        for (Article article : list) {
+            System.out.println(article.getId());
+        }
+        System.out.println("————————————");
+        // 升序排序
+        List<Article> list2 = articleService.lambdaQuery()
+                .orderByAsc(Article::getCreateTime)
+                .list();
+        for (Article article : list2) {
+            System.out.println(article.getId());
+        }
+        System.out.println("————————————");
+    }
+    @Test
+    public void cs6(){
+        int pageNumber = 0;
+        int pageSize = 2;
+        List<Comment> records = commentService.lambdaQuery()
+                // current:当前索引(决定是第几页) size:分页大小
+                .page(new Page<>(pageNumber, pageSize))
+                // 获取记录(分页)
+                .getRecords();
+        records.forEach(u-> System.out.println("分页查询："+u.getContent()));
+
     }
 
 }
