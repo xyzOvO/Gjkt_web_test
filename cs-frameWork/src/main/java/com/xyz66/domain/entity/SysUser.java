@@ -1,29 +1,24 @@
 package com.xyz66.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Builder;
+
+import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
 
 /**
  * 用户表(SysUser)表实体类
  *
  * @author xyz66 Email:2910223554@qq.com
- * @since 2023-11-16 13:00:02
+ * @since 2023-11-28 14:43:37
  */
 @SuppressWarnings("serial")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@TableName("sys_user")
-public class SysUser {
-    //主键@TableId
+public class SysUser extends Model<SysUser> {
+    //主键
     private Long id;
-
     //用户名
     private String userName;
     //昵称
@@ -45,16 +40,143 @@ public class SysUser {
     //创建人的用户id
     private Long createBy;
     //创建时间
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
+    private LocalTime createTime;
     //更新人
     private Long updateBy;
     //更新时间
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date updateTime;
+    private LocalTime updateTime;
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Long getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
+    }
+
+    public LocalTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(Long updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public LocalTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalTime updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    /**
+     * 获取主键值
+     *
+     * @return 主键值
+     */
+    @Override
+    public Serializable pkVal() {
+        return this.id;
+    }
 }
 

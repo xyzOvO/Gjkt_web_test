@@ -279,7 +279,7 @@
               <option name="saveModelName" value="cs-frameWork" />
               <option name="savePackageName" value="com.xyz66" />
               <option name="savePath" value="./cs-frameWork/src/main/java/com/xyz66" />
-              <option name="templateGroupName" value="Mybatis_1" />
+              <option name="templateGroupName" value="MybatisPlus-cs" />
             </TableInfoDTO>
           </value>
         </entry>
@@ -453,7 +453,7 @@
                     <option name="custom" value="false" />
                     <option name="ext" value="{}" />
                     <option name="name" value="createTime" />
-                    <option name="type" value="java.util.Date" />
+                    <option name="type" value="java.time.LocalTime" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
                     <option name="comment" value="更新人" />
@@ -467,7 +467,7 @@
                     <option name="custom" value="false" />
                     <option name="ext" value="{}" />
                     <option name="name" value="updateTime" />
-                    <option name="type" value="java.util.Date" />
+                    <option name="type" value="java.time.LocalTime" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
                     <option name="comment" value="删除标志（0代表未删除，1代表已删除）" />
@@ -483,7 +483,7 @@
               <option name="saveModelName" value="cs-frameWork" />
               <option name="savePackageName" value="com.xyz66" />
               <option name="savePath" value="./cs-frameWork/src/main/java/com/xyz66" />
-              <option name="templateGroupName" value="MybatisPlus-Mixed" />
+              <option name="templateGroupName" value="MybatisPlus-cs" />
             </TableInfoDTO>
           </value>
         </entry>

@@ -38,7 +38,7 @@ public class SysUserController {
      * @param sysUser 查询实体
      * @return 所有数据
      */
-    @ApiOperation(value = "分页查询所有数据",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "查询所有数据",produces = MediaType.APPLICATION_JSON_VALUE)
     @GetMapping("/selectall")
     public ResponseResult selectAll(Page<SysUser> page, SysUser sysUser) {
         return ResponseResult.okResult(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));

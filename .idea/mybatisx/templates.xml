@@ -31,6 +31,66 @@
                 </ModuleInfoGo>
                 <ModuleInfoGo>
                   <option name="basePath" value="${domain.basePath}" />
+                  <option name="configFileName" value="controller.ftl" />
+                  <option name="configName" value="controller" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Controller" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Controller.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
+                  <option name="packageName" value="${domain.basePackage}.controller" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configFileName" value="mapperInterface.ftl" />
+                  <option name="configName" value="mapperInterface" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Mapper" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
+                  <option name="packageName" value="${domain.basePackage}.mapper" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="src/main/resources" />
+                  <option name="configFileName" value="mapperXml.ftl" />
+                  <option name="configName" value="mapperXml" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Mapper" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
+                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
+                  <option name="packageName" value="mapper" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configFileName" value="serviceImpl.ftl" />
+                  <option name="configName" value="serviceImpl" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}ServiceImpl" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
+                  <option name="packageName" value="${domain.basePackage}.service.impl" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configFileName" value="serviceInterface.ftl" />
+                  <option name="configName" value="serviceInterface" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Service" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
+                  <option name="packageName" value="${domain.basePackage}.service" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configFileName" value="updateDTO.ftl" />
+                  <option name="configName" value="updateDTO" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}UpdateDTO" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}UpdateDTO.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
+                  <option name="packageName" value="${domain.basePackage}.domain.dto" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
                   <option name="configFileName" value="VO.ftl" />
                   <option name="configName" value="vo" />
                   <option name="encoding" value="${domain.encoding}" />
@@ -42,7 +102,7 @@
               </list>
             </option>
             <option name="needsComment" value="true" />
-            <option name="needsModel" value="true" />
+            <option name="needsModel" value="false" />
             <option name="relativePackage" value="" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
