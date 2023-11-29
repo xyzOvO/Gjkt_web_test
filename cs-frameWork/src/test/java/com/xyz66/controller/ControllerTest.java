@@ -8,6 +8,7 @@ import com.xyz66.domain.dto.SysUserAddDTO;
 import com.xyz66.domain.entity.Article;
 import com.xyz66.domain.entity.Comment;
 import com.xyz66.domain.entity.SysUser;
+import com.xyz66.mapper.SysUserMapper;
 import com.xyz66.service.ArticleService;
 import com.xyz66.service.CommentService;
 import com.xyz66.service.SysUserService;
@@ -252,7 +253,20 @@ public class ControllerTest {
         sysUserService.save(cs);
         List<SysUser> cs1 = sysUserService.lambdaQuery()
                 .eq(SysUser::getNickName, "cs").list();
-        cs1.forEach(c-> System.out.println(c.getCreateTime()));
+        cs1.forEach(c -> System.out.println(c.getCreateTime()));
+    }
+
+    @Autowired
+    SysUserMapper sysUserMapper;
+    @Test
+    public void cs15() {
+        // 测试自定义SQL
+        SysUser cs = SysUser.builder()
+                .nickName("cs")
+                .password("123")
+                .build();
+        List<SysUser> all = sysUserMapper.getAll(null);
+        all.forEach(a -> System.out.println(a.getId()));
     }
 
 }
