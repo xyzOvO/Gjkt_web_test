@@ -3,6 +3,7 @@ package com.xyz66.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Builder;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,6 +16,7 @@ import java.util.Date;
  */
 @SuppressWarnings("serial")
 @TableName("sg_comment")
+@Builder
 public class Comment extends Model<Comment> {
 
     private Long id;
