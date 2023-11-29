@@ -20,10 +20,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -171,8 +168,30 @@ public class SysUserControllerTest {
         List<Comment> records = commentService.lambdaQuery()
                 .last("group by to_comment_user_id")
                 .list();
-        records.forEach(u-> System.out.println("分页查询："+u.getContent()));
+        records.forEach(u-> System.out.println("表查询末尾："+u.getContent()));
 
     }
+    @Test
+    public void cs8(){
+        // 模糊查询
+        List<Comment> records = commentService.lambdaQuery()
+//                .like(Comment::getContent,"哈哈哈")
+//                .likeRight(Comment::getContent,"什么")// 右通配符(什么%)，开头
+                .likeLeft(Comment::getContent,"什么")// 左通配符(%什么)，结尾
+                .list();
+        records.forEach(u-> System.out.println("模糊查询："+u.getContent()));
+
+    }
+    @Test
+    public void cs9(){
+        // 范围查询，查有的xx(对应！)的，
+        List<String> fw = Arrays.asList("asS","a");
+        List<Comment> records = commentService.lambdaQuery()
+//                .notIn(Comment::getContent,fw)
+                .in(Comment::getContent,fw)
+                .list();
+        records.forEach(u-> System.out.println("范围查询："+u.getContent()));
+    }
+    
 
 }

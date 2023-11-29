@@ -1,12 +1,12 @@
 package com.xyz66.mapper;
 
-import java.util.List;
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xyz66.domain.entity.Article;
-import org.apache.ibatis.annotations.Param;
 import com.xyz66.domain.entity.Comment;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 评论表(Comment)表数据库访问层
