@@ -3,19 +3,22 @@ package com.xyz66.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 
 import java.io.Serializable;
-import java.time.LocalTime;
+import java.util.Date;
 
 /**
  * 用户表(SysUser)表实体类
  *
  * @author xyz66 Email:2910223554@qq.com
- * @since 2023-11-28 14:43:37
+ * @since 2023-11-29 17:06:33
  */
 @SuppressWarnings("serial")
+@TableName("sys_user")
 @Builder
 public class SysUser extends Model<SysUser> {
     //主键
@@ -39,17 +42,16 @@ public class SysUser extends Model<SysUser> {
     //头像
     private String avatar;
     //创建人的用户id
-
     private Long createBy;
     //创建时间
-
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
-    private LocalTime createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
     //更新人
     private Long updateBy;
     //更新时间
-    private LocalTime updateTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;
 
@@ -142,11 +144,11 @@ public class SysUser extends Model<SysUser> {
         this.createBy = createBy;
     }
 
-    public LocalTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -158,11 +160,11 @@ public class SysUser extends Model<SysUser> {
         this.updateBy = updateBy;
     }
 
-    public LocalTime getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(LocalTime updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 

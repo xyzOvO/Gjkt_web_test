@@ -1,8 +1,8 @@
 package com.xyz66.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xyz66.mapper.SysUserMapper;
 import com.xyz66.domain.entity.SysUser;
+import com.xyz66.mapper.SysUserMapper;
 import com.xyz66.service.SysUserService;
 import org.springframework.stereotype.Service;
 

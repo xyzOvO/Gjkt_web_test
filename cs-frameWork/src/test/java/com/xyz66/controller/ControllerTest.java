@@ -253,7 +253,6 @@ public class ControllerTest {
         List<SysUser> cs1 = sysUserService.lambdaQuery()
                 .eq(SysUser::getNickName, "cs").list();
         cs1.forEach(c-> System.out.println(c.getCreateTime()));
-
     }
 
 }

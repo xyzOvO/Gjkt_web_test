@@ -635,7 +635,7 @@
                     <option name="custom" value="false" />
                     <option name="ext" value="{}" />
                     <option name="name" value="createTime" />
-                    <option name="type" value="java.time.LocalTime" />
+                    <option name="type" value="java.util.Date" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
                     <option name="comment" value="更新人" />
@@ -649,7 +649,7 @@
                     <option name="custom" value="false" />
                     <option name="ext" value="{}" />
                     <option name="name" value="updateTime" />
-                    <option name="type" value="java.time.LocalTime" />
+                    <option name="type" value="java.util.Date" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
                     <option name="comment" value="删除标志（0代表未删除，1代表已删除）" />
