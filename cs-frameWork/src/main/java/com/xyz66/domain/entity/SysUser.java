@@ -1,12 +1,13 @@
 package com.xyz66.domain.entity;
 
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Builder;
 
 import java.io.Serializable;
 import java.time.LocalTime;
-import java.util.Date;
 
 /**
  * 用户表(SysUser)表实体类
@@ -38,8 +39,12 @@ public class SysUser extends Model<SysUser> {
     //头像
     private String avatar;
     //创建人的用户id
+
     private Long createBy;
     //创建时间
+
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField(fill = FieldFill.INSERT)
     private LocalTime createTime;
     //更新人
     private Long updateBy;

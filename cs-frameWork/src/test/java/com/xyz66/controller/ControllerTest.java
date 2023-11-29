@@ -233,8 +233,27 @@ public class ControllerTest {
                 .set(Comment::getArticleId, 233L)
                 .set(Comment::getContent, "测试测试123")
                 // 更新ID为32的数据
-                .eq(Comment::getId,32L)
+                .eq(Comment::getId, 32L)
                 .update();
+    }
+
+    @Test
+    public void cs13() {
+        // Association 标签适用于表和表之间存在一对一的关联关系，如用户和身份证存在一个人只会有一个身份证号，反过来也成立。
+    }
+
+    @Test
+    public void cs14() {
+        // 新增用户字段填充测试
+        SysUser cs = SysUser.builder()
+                .nickName("cs")
+                .password("123")
+                .build();
+        sysUserService.save(cs);
+        List<SysUser> cs1 = sysUserService.lambdaQuery()
+                .eq(SysUser::getNickName, "cs").list();
+        cs1.forEach(c-> System.out.println(c.getCreateTime()));
+
     }
 
 }

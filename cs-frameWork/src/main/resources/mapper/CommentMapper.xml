@@ -16,6 +16,10 @@
         <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
         <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
     </resultMap>
+<!--    `association`标签来定义一个**关联关系**-->
+<!--    <resultMap id="csMap" type="com.xyz66.domain.entity.Link" extends="CommentMap">-->
+<!--        <association property="address" column="{}"-->
+<!--    </resultMap>-->
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
