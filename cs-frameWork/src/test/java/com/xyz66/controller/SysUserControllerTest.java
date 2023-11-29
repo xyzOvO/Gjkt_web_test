@@ -2,7 +2,6 @@ package com.xyz66.controller;
 
 
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xyz66.domain.ResponseResult;
 import com.xyz66.domain.dto.SysUserAddDTO;
@@ -14,7 +13,6 @@ import com.xyz66.service.CommentService;
 import com.xyz66.service.SysUserService;
 import com.xyz66.utils.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.poi.ss.formula.functions.T;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +20,10 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -161,6 +162,15 @@ public class SysUserControllerTest {
                 .page(new Page<>(pageNumber, pageSize))
                 // 获取记录(分页)
                 .getRecords();
+        records.forEach(u-> System.out.println("分页查询："+u.getContent()));
+
+    }
+    @Test
+    public void cs7(){
+        // 表查询末尾-添加SQL语句(测试分组查询)
+        List<Comment> records = commentService.lambdaQuery()
+                .last("group by to_comment_user_id")
+                .list();
         records.forEach(u-> System.out.println("分页查询："+u.getContent()));
 
     }
