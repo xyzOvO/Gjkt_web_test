@@ -225,5 +225,16 @@ public class ControllerTest {
         records.forEach(u -> System.out.println("复杂查询：" + u.getContent()));
     }
 
+    @Test
+    public void cs12() {
+        // 更新条件构造器：LambdaUpdateWrapper
+//        commentService.update();
+        commentService.lambdaUpdate()
+                .set(Comment::getArticleId, 233L)
+                .set(Comment::getContent, "测试测试123")
+                // 更新ID为32的数据
+                .eq(Comment::getId,32L)
+                .update();
+    }
 
 }
