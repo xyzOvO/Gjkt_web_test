@@ -1,7 +1,7 @@
 package com.xyz66.cs.cs_2023_11_27;
 
-import com.xyz66.domain.entity.SysUser;
-import com.xyz66.service.SysUserService;
+import com.xyz66.web.domain.entity.SysUser;
+import com.xyz66.web.service.SysUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

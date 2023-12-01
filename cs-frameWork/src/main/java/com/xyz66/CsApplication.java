@@ -3,8 +3,6 @@ package com.xyz66;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -14,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 
-@MapperScan("com.xyz66.mapper")
+@MapperScan("com.xyz66.web.mapper")// 扫描mapper，创包了记得改
 @SpringBootApplication
 @EnableTransactionManagement
 public class CsApplication {
