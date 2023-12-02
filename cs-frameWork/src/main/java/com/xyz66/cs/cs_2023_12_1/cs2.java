@@ -2,10 +2,7 @@ package com.xyz66.cs.cs_2023_12_1;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedTransferQueue;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.*;
 
 /**
  * @author xyz66 Email:2910223554@qq.com
@@ -130,5 +127,50 @@ public class cs2 {
         }
 
         Thread.sleep(40000);// 延迟30s，防止程序提前结束，导致消费者没有消费完毕
+    }
+    
+    @Test
+    public void cs3() throws InterruptedException {
+        // 线程安全队列
+        LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<String>(3);
+        // 这里设置为3，如果生产者生产的速度大于消费者消费的速度，则会导致队列满了，生产者会阻塞，等待消费者消费再进行生产。
+        // 即如果该队列已满，则线程等待。(.put())
+        // 1个生产者
+        new Thread(() -> {
+            // 生产20个元素
+            for (int i = 0; i < 20; i++) {
+                try {
+                    // 生产元素如果满了阻塞等待
+                    queue.put("元素_" + i);
+                    // add()插入，队列满会抛出异常
+//                    queue.add("元素_" + i);
+                    System.out.println("生产者生产元素： " + i);
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+
+        // 3个消费者
+        for (int i = 0; i < 3; i++) {
+            final int index = i;
+            new Thread(() -> {
+                while (true) {
+                    try {
+                        // 消费元素，如果队列为空阻塞等待
+                        System.out.println("消费者" + index + "消费元素： " + queue.take());
+//                        System.out.println("消费者" + index + "消费元素： " + queue.poll());// 没有返回null
+                        Thread.sleep(100);// 延迟一下
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }).start();
+        }
+        Thread.sleep(10000);// 延迟10s，防止程序提前结束，导致消费者没有消费完毕
+    }
+    @Test
+    public void cs4() throws InterruptedException {
     }
 }

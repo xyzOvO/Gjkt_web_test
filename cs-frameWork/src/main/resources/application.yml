@@ -29,3 +29,9 @@ mybatis-plus:
 #  level:
 #    com.xyz66: debug
 #    org.springframework: warn
+
+cs:
+  startTime:
+    1704038400000
+  endTime:
+    1709222400000
