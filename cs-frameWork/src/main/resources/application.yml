@@ -24,6 +24,30 @@ mybatis-plus:
       id-type: auto
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mapper/*Mapper.xml
+  # Redis 配置部分开始  
+  redis:
+    # Redis服务器IP地址配置  
+    host:
+      ip: 127.0.0.1  # Redis服务器的IP地址  
+    # Redis服务器端口配置  
+    port: 6379  # Redis服务的端口号，默认为6379  
+    # Redis服务器密码配置（如果有的话）  
+    password: ""  # 如果Redis没有设置密码，则留空；如果有密码，则填写对应的密码  
+    # 客户端超时时间配置  
+    timeout: 3000  # 超时时间，单位是毫秒。默认是2000毫秒（2秒）  
+    # 连接池的最大空闲连接数配置  
+    maxIdle: 6  # 连接池允许的最大空闲连接数  
+    # 连接池的最大连接数配置  
+    maxTotal: 20  # 连接池允许的最大连接数。设为0表示无限制。  
+    # 最大建立连接等待时间配置  
+    maxWaitMillis: 3000  # 建立连接时的最大等待时间，单位是毫秒。如果超过此时间将接到异常。设为-1表示无限制。  
+    # 连接的最小空闲时间配置  
+    minEvictableIdleTimeMillis: 300000  # 连接在连接池中的最小空闲时间，默认是1800000毫秒（30分钟），超过这个时间且没有被使用的连接将被逐出。  
+    # 每次逐出扫描时检查的最大连接数配置  
+    numTestsPerEvictionRun: 4  # 每次进行逐出扫描时，检查的最大连接数。默认是3。  
+    # 逐出扫描的时间间隔配置  
+    timeBetweenEvictionRunsMillis: 30000  # 逐出扫描的时间间隔，单位是毫秒。如果为负数，则不运行逐出线程。默认是-1。
+
 # 日志配置
 #logging:
 #  level:
