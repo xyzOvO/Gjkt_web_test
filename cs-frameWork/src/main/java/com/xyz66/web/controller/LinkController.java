@@ -82,5 +82,17 @@ public class LinkController {
     public ResponseResult delete(@RequestParam("idList") List<Long> idList) {
         return ResponseResult.okResult(this.linkService.removeByIds(idList));
     }
+
+    /**
+     * 分页展示友链x条
+     */
+    @GetMapping("show")
+    public ResponseResult get(@RequestParam("T") int t){
+        List<Link> list = linkService.lambdaQuery()
+                .orderByDesc(Link::getCreateTime)
+                .last("limit " + t)
+                .list();
+        return ResponseResult.okResult(list);
+    }
 }
 
