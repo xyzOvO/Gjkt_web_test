@@ -21,8 +21,8 @@ public class cs_MapStruct {
         System.out.println(JSON.toJSONString(a));
         // 通过Mappers工程获取AToBConverter
         AToBConverter mapper = Mappers.getMapper(AToBConverter.class);
-        B_entity b = mapper.toB_entity(a);
-        System.out.println(JSON.toJSONString(b));
+//        B_entity b = mapper.toB_entity(a);
+//        System.out.println(JSON.toJSONString(b));
     }
     @Test
     public void cs_2() {
