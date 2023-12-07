@@ -22,6 +22,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -100,6 +101,12 @@ public class ControllerTest {
         list.forEach(sysUser -> {
             System.out.println(sysUser);
         });
+
+        // 测试mybatis-plus的.one()方法，返回一个对象
+        SysUser one = sysUserService.lambdaQuery()
+                .eq(SysUser::getId, 1)
+                .one();
+
     }
 
     @Test
@@ -268,6 +275,21 @@ public class ControllerTest {
                 .build();
         List<SysUser> all = sysUserMapper.getAll(null);
         all.forEach(a -> System.out.println(a.getId()));
+    }
+    @Test
+    public void cs16() {
+        // 测试.sorted
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list,"11:31","11:30","11:32");
+        list.forEach(System.out::println);
+        System.out.println("----------");
+        list.stream()
+                // 模拟比较时间
+                // 默认升序
+//                .sorted(Comparator.comparing(s-> LocalTime.parse(s)))
+                // 要降序就反转
+                .sorted(Comparator.comparing(s-> LocalTime.parse((CharSequence) s)).reversed())
+                .forEach(System.out::println);
     }
 
 }
