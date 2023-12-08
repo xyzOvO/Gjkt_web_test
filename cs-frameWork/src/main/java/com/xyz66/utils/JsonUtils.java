@@ -41,9 +41,5 @@ public class JsonUtils {
         // fastjson2内置
         User to = JSON.to(User.class, json);
         System.out.println(to);
-        // 对象转化为JSON String
-        System.out.println(JsonUtils.objectToJson(user));
-        // fastjson2内置
-        System.out.println(JSON.toJSONString(user));
     }
 }
