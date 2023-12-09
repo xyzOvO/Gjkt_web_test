@@ -18,6 +18,9 @@ public class test {
 
     @Test
     public void cs1() {
-        
+        String operate = "完成了";
+        String[] strings = "猫三棂-第三轮".split("-");
+        operate = strings.length > 1 ? operate + strings[1] : operate;// 判断-轮次加类型后
+        System.out.println(operate);
     }
 }
