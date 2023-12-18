@@ -10,10 +10,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date 2023/11/16 10:52
  */
 
-
-
 @MapperScan("com.xyz66.web.mapper")// 扫描mapper，创包了记得改
-@SpringBootApplication
+@SpringBootApplication// 核心注解,组合了@SpringBootConfiguration:配置文件，@EnableAutoConfiguration:打开自动配置，@ComponentScan:Spring组件扫描
 @EnableTransactionManagement
 public class CsApplication {
     public static void main(String[] args) {
