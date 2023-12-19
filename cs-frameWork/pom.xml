@@ -2,6 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--  使用parent标签，指定父pom的坐标和版本  -->
     <parent>
         <artifactId>Gjkt_web_test</artifactId>
         <groupId>org.example</groupId>
@@ -9,6 +11,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--  子工程坐标  -->
     <artifactId>cs-frameWork</artifactId>
 
     <properties>
@@ -33,18 +36,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-<!--            <scope>test</scope>-->
+            <!--            <scope>test</scope>-->
         </dependency>
         <!--SpringSecurity启动器-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
-        <!--redis依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-security</artifactId>-->
+        <!--        </dependency>-->
         <!--fastjson依赖-->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -93,16 +91,16 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>1.5.5.Final</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.qiniu</groupId>-->
-<!--            <artifactId>qiniu-java-sdk</artifactId>-->
-<!--            <version>[7.7.0, 7.7.99]</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.qiniu</groupId>-->
+        <!--            <artifactId>qiniu-java-sdk</artifactId>-->
+        <!--            <version>[7.7.0, 7.7.99]</version>-->
+        <!--        </dependency>-->
         <!--阿里云OSS-->
-<!--        <dependency>-->
-<!--            <groupId>com.aliyun.oss</groupId>-->
-<!--            <artifactId>aliyun-sdk-oss</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aliyun.oss</groupId>-->
+        <!--            <artifactId>aliyun-sdk-oss</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -120,11 +118,11 @@
         </dependency>
         <!--redis的客服端jedis-->
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-<!--        <dependency>-->
-<!--            <groupId>redis.clients</groupId>-->
-<!--            <artifactId>jedis</artifactId>-->
-<!--            <version>3.0.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>redis.clients</groupId>-->
+        <!--            <artifactId>jedis</artifactId>-->
+        <!--            <version>3.0.1</version>-->
+        <!--        </dependency>-->
         <!--Springboot 操作Redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
