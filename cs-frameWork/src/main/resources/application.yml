@@ -1,11 +1,13 @@
 server:
   port:8080
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/xi_ning?characterEncoding=utf-8&serverTimezone=UTC
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active: localhost
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/xi_ning?characterEncoding=utf-8&serverTimezone=UTC
+#    username: root
+#    password: 1234
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
     multipart:
       max-file-size: 2MB

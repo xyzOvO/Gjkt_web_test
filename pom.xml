@@ -40,6 +40,13 @@
                 <!--  配置依赖范围  -->
                 <scope>import</scope>
             </dependency>
+            <!--    阿里Druid依赖，数据库连接池        -->
+            <!-- 阿里数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.2.16</version>
+            </dependency>
 
             <!--fastjson依赖-JSON数据的处理和转换-->
             <dependency>
