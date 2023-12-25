@@ -7,6 +7,7 @@ import com.xyz66.web.domain.ResponseResult;
 import com.xyz66.web.domain.entity.Article;
 import com.xyz66.web.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -81,6 +82,16 @@ public class ArticleController{
     @DeleteMapping
     public ResponseResult delete(@RequestParam("idList") List<Long> idList) {
         return ResponseResult.okResult(this.articleService.removeByIds(idList));
+    }
+
+    // todo:测试用
+    @PreAuthorize("@csService.cs('SpringSecurity测试雪豹')")
+    @PostMapping("/cs")
+    public ResponseResult cs(){
+        List<Article> list = articleService.lambdaQuery()
+                .like(Article::getSummary, "雪豹")
+                .list();
+        return ResponseResult.okResult(list);
     }
 }
 

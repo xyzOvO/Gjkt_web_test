@@ -58,4 +58,22 @@ public class test {
         }
     }
 
+    @Test
+    public void cs3() {
+        // 字符串截取
+        String s = "123@qq";
+        String substring = s.substring(s.indexOf("@") + 1);
+        System.out.println(substring);
+    }
+
+    @Test
+    public void cs4() {
+        // 字符串split
+        String s = "admin,common";
+        String[] split = s.split(",");
+        for (String string : split) {
+            System.out.println(string);
+        }
+    }
+
 }
