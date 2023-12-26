@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyz66.web.mapper.MessageMapper">
+
+    <resultMap type="com.xyz66.web.domain.entity.Message" id="MessageMap">
+        <result property="message" column="message" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="" useGeneratedKeys="true">
+        insert into xi_ning.c_message(message)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.message})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="" useGeneratedKeys="true">
+        insert into xi_ning.c_message(message)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.message})
+        </foreach>
+        on duplicate key update
+        message = values(message)
+    </insert>
+
+</mapper>
+

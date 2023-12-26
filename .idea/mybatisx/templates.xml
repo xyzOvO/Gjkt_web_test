@@ -20,36 +20,6 @@
             <option name="moduleUIInfoList">
               <list>
                 <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="addDTO.ftl" />
-                  <option name="configName" value="addDTO" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}AddDTO" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}AddDTO.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.domain.dto" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="controller.ftl" />
-                  <option name="configName" value="controller" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}Controller" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}Controller.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.controller" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="mapperInterface.ftl" />
-                  <option name="configName" value="mapperInterface" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}Mapper" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.mapper" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
                   <option name="basePath" value="src/main/resources" />
                   <option name="configFileName" value="mapperXml.ftl" />
                   <option name="configName" value="mapperXml" />
@@ -58,46 +28,6 @@
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
                   <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
                   <option name="packageName" value="mapper" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="serviceImpl.ftl" />
-                  <option name="configName" value="serviceImpl" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}ServiceImpl" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.service.impl" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="serviceInterface.ftl" />
-                  <option name="configName" value="serviceInterface" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}Service" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.service" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="updateDTO.ftl" />
-                  <option name="configName" value="updateDTO" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}UpdateDTO" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}UpdateDTO.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.domain.dto" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configFileName" value="VO.ftl" />
-                  <option name="configName" value="vo" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}VO" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}VO.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/cs-frameWork" />
-                  <option name="packageName" value="${domain.basePackage}.domain.vo" />
                 </ModuleInfoGo>
               </list>
             </option>
@@ -108,18 +38,18 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="SgArticle" />
-                  <option name="tableName" value="sg_article" />
+                  <option name="className" value="Message" />
+                  <option name="tableName" value="c_message" />
                 </TableUIInfo>
               </list>
             </option>
-            <option name="templatesName" value="cs" />
+            <option name="templatesName" value="test" />
             <option name="useLombokPlugin" value="true" />
           </GenerateConfig>
         </option>
         <option name="moduleName" value="cs-frameWork" />
         <option name="projectPath" value="$PROJECT_DIR$" />
-        <option name="templateName" value="cs" />
+        <option name="templateName" value="test" />
       </TemplateContext>
     </option>
   </component>

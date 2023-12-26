@@ -3,7 +3,9 @@ spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/xi_ning?characterEncoding=utf-8&serverTimezone=UTC
+        # 优化性能
+        url: jdbc:mysql://localhost:3306/xi_ning?characterEncoding=utf-8&serverTimezone=UTC&rewriteBatchedStatements=true
+#        url: jdbc:mysql://localhost:3306/xi_ning?characterEncoding=utf-8&serverTimezone=UTC
         username: root
         password: 1234
         druid:

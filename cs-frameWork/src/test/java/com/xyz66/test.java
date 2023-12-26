@@ -1,6 +1,7 @@
 package com.xyz66;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.java.Log;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
  * @author xyz66 Email:2910223554@qq.com
  * @since 2023/12/5 13:14
  */
+@Log
 public class test {
     @Test
     public void cs() {
@@ -81,29 +83,30 @@ public class test {
     }
 
     @Test
-    public void cs5(){
+    public void cs5() {
         // ArrayList与LinkedList的性能对比
-        Object obj=new Object();
-        List aList=new ArrayList();
-        List bList=new LinkedList();
+        Object obj = new Object();
+        List aList = new ArrayList();
+        List bList = new LinkedList();
 
-        long t1=System.currentTimeMillis();//获取开始时间
+        long t1 = System.currentTimeMillis();//获取开始时间
         System.out.println(t1);
-        for(int i=0;i<50000;i++){
-            aList.add(0,obj);
+        for (int i = 0; i < 50000; i++) {
+            aList.add(0, obj);
         }
-        long t2=System.currentTimeMillis()-t1;
+        long t2 = System.currentTimeMillis() - t1;
         System.out.println(t2);
 
-        t1=System.currentTimeMillis();// 重新获取开始时间
-        for(int i=0;i<50000;i++){
-            bList.add(0,obj);
+        t1 = System.currentTimeMillis();// 重新获取开始时间
+        for (int i = 0; i < 50000; i++) {
+            bList.add(0, obj);
         }
-        long t3=System.currentTimeMillis()-t1;
+        long t3 = System.currentTimeMillis() - t1;
         System.out.println(t3);
     }
+
     @Test
-    public void cs6(){
+    public void cs6() {
         List<String> s = new ArrayList<>();
         s.add("测试1");
         s.add("测试2");
@@ -117,5 +120,7 @@ public class test {
                 orElse(Collections.emptyList());
         System.out.println(JSON.toJSONString(s2));
     }
+
+
 
 }

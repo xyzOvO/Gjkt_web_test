@@ -669,6 +669,28 @@
             </TableInfoDTO>
           </value>
         </entry>
+        <entry key="xi_ning.c_message">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="message" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="CMessage" />
+              <option name="preName" value="c_" />
+              <option name="saveModelName" value="cs-frameWork" />
+              <option name="savePackageName" value="com.xyz66" />
+              <option name="savePath" value="./cs-frameWork/src/main/java/com/xyz66" />
+              <option name="templateGroupName" value="MybatisPlus-MixedCopy" />
+            </TableInfoDTO>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
