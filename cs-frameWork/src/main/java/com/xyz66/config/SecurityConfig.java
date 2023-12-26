@@ -12,7 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 解决 无法直接注入 AuthenticationManager
      * 会一直报403
-     * * @return
+     * *@return
      *
      * @throws Exception
      */

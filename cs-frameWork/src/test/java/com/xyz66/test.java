@@ -1,6 +1,10 @@
 package com.xyz66;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Test;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author xyz66 Email:2910223554@qq.com
@@ -74,6 +78,44 @@ public class test {
         for (String string : split) {
             System.out.println(string);
         }
+    }
+
+    @Test
+    public void cs5(){
+        // ArrayList与LinkedList的性能对比
+        Object obj=new Object();
+        List aList=new ArrayList();
+        List bList=new LinkedList();
+
+        long t1=System.currentTimeMillis();//获取开始时间
+        System.out.println(t1);
+        for(int i=0;i<50000;i++){
+            aList.add(0,obj);
+        }
+        long t2=System.currentTimeMillis()-t1;
+        System.out.println(t2);
+
+        t1=System.currentTimeMillis();// 重新获取开始时间
+        for(int i=0;i<50000;i++){
+            bList.add(0,obj);
+        }
+        long t3=System.currentTimeMillis()-t1;
+        System.out.println(t3);
+    }
+    @Test
+    public void cs6(){
+        List<String> s = new ArrayList<>();
+        s.add("测试1");
+        s.add("测试2");
+        s.add("测试3");
+        s.add("正式1");
+        s.add("正式2");
+        List<String> s1 = s.stream().filter(str -> str.contains("测试")).collect(Collectors.toList());
+        // 测试Optional
+        List<String> no = new ArrayList<>();
+        List<String> s2 = Optional.ofNullable(no).
+                orElse(Collections.emptyList());
+        System.out.println(JSON.toJSONString(s2));
     }
 
 }
