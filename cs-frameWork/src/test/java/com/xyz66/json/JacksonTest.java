@@ -14,17 +14,17 @@ import org.slf4j.LoggerFactory;
  * @since 2023/12/28 15:57
  */
 @Log4j2
-public class jackson {
+public class JacksonTest {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Test
     public void test1() throws JsonProcessingException {
-        // jackson-json键值对，不匹配或多于实体类字段
+        // JacksonTest-json键值对，不匹配或多于实体类字段
 //        String jsonString = "{\"name\":\"张三\",\"age\":18}";
         String jsonString = "{\"name\":\"张三\",\"age\":18,\"cs\":\"雪豹闭嘴\"}";
         log.info(jsonString);
         ObjectMapper objectMapper = new ObjectMapper();
         Student student = objectMapper.readValue(jsonString, Student.class);
         log.info(student);
-
     }
 }

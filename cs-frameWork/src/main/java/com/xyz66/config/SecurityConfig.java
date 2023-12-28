@@ -38,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // 任何请求，访问的用户都需要经过认证
 //                .anyRequest().authenticated();
+                // 静态资源，可匿名访问
+                .antMatchers("/swagger-ui.html","/doc.html", "/swagger-resources/**", "/webjars/**", "/*/api-docs", "/druid/**").permitAll()
                 // 全部通过,也可自定义认证
                 .anyRequest().permitAll();
     }
