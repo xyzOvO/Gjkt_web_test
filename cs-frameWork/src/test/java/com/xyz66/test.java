@@ -1,8 +1,13 @@
 package com.xyz66;
 
 import com.alibaba.fastjson.JSON;
-import lombok.extern.java.Log;
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,7 +16,8 @@ import java.util.stream.Collectors;
  * @author xyz66 Email:2910223554@qq.com
  * @since 2023/12/5 13:14
  */
-@Log
+@Log4j2
+@Slf4j
 public class test {
     @Test
     public void cs() {
@@ -121,6 +127,55 @@ public class test {
         System.out.println(JSON.toJSONString(s2));
     }
 
+    @Test
+    public void cs7() {
+        // 测试is
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("123测试321");
+        log.info(stringBuilder.toString());
+        boolean blank = StringUtils.isBlank(stringBuilder.toString());
+        String s = null;
+        log.info("blank:"+blank);
+        log.info("blank:"+s);
+    }
+    @Test
+    public void cs8(){
+        int[] a = new int[]{1,2,3,4,5,6,7,8,9};
+        // 装箱
+        Integer[] array = Arrays.stream(a).boxed().toArray(Integer[]::new);
+        for (Integer integer : array) {
+            log.info(integer);
+        }
+    }
+    @Test
+    public void cs9(){
+        // 拆箱
+        Integer[] a = new Integer[]{1,2,null,4,5,6,7,8,9};
+        int[] array = Arrays.stream(a).mapToInt(num -> num == null ? 0 : Integer.valueOf(num)).toArray();
+        for (int i = 0; i < array.length; i++) {
+            log.info(array[i]);
+        }
+    }
+    private static final Logger LOGGER = LoggerFactory.getLogger(test.class);// 通过LoggerFactory获取Logger对象，不加注解的引入方式。
+    @Test
+    public void cs10(){
+        // String.format,格式化输出
+        log.info(String.format("测试: %.3f", 1.23333333));
+        LOGGER.info("测试: {}", 1.23333333);
+    }
+    @Test
+    public void cs11(){
+        // 测试JSONObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", "张三");
+        jsonObject.put("age", "3");
+        jsonObject.put("message", true);
+        log.info(JSON.toJSONString(jsonObject));
+        log.info(jsonObject.getBooleanValue("message"));// 根据Key获取值（键值对），转成Boolean
+        JSONObject name = jsonObject.getJSONObject("name");
+        JSON.toJSONString(name);
+    }
+    
 
 
 }

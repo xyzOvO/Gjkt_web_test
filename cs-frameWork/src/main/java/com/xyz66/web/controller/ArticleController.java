@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xyz66.web.domain.ResponseResult;
 import com.xyz66.web.domain.entity.Article;
+import com.xyz66.web.domain.entity.Comment;
 import com.xyz66.web.service.ArticleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xyz66.web.service.CommentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +22,20 @@ import java.util.List;
  * @since 2023-11-28 15:09:13
  */
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/article")
 public class ArticleController{
     /**
      * 服务对象
      */
-    @Autowired
-    private ArticleService articleService;
+//    @Autowired
+    private final ArticleService articleService;
+    private final CommentService commentService;
+
+//    public ArticleController(ArticleService articleService) {
+//        // 构造器注入
+//        this.articleService = articleService;
+//    }
 
     /**
      * 分页查询所有数据
@@ -92,6 +101,22 @@ public class ArticleController{
                 .like(Article::getSummary, "雪豹")
                 .list();
         return ResponseResult.okResult(list);
+    }
+
+    @GetMapping("/cs2")
+//    @ResponseBody// 返回json数据,Spring 4.0开始@RestController默认返回json数据
+    public List<Article> cs2(){
+//        return "{'test2':'cs2','test3':'cs3','test4':'cs4'}";
+        List<Article> list = articleService.lambdaQuery()
+                .like(Article::getSummary, "雪豹")
+               .list();
+        return list;
+    }
+    @GetMapping("/cs3")
+    public ResponseResult cs3(){
+        return ResponseResult.okResult(commentService.lambdaQuery()
+               .like(Comment::getContent, "测试")
+               .list());
     }
 }
 
