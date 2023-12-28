@@ -1,5 +1,7 @@
 package com.xyz66.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.xyz66.web.domain.entity.Message;
 import com.xyz66.web.service.MessageService;
 import lombok.extern.java.Log;
@@ -19,7 +21,7 @@ import java.util.List;
 @SpringBootTest
 @Log
 public class MyBatisTest {
-
+    // 测试Mybatis saveBatch
     @Autowired
     private MessageService messageService;
     @Test
@@ -56,5 +58,15 @@ public class MyBatisTest {
         // 停止计时
         stopWatch.stop();
         log.info("批量插入所花费：" + stopWatch.getTotalTimeMillis());
+    }
+    
+    @Test
+    public void cs3(){
+        // 反序列化
+        String s = "{\"name\":\"张三\",\"age\":30,\"city\":\"北京\"}";
+        JSONObject jsonObject = JSON.parseObject(s);
+        log.info(jsonObject.toString());
+        Message javaObject = jsonObject.toJavaObject(Message.class);
+        log.info(javaObject.toString());
     }
 }

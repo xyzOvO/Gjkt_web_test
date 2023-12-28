@@ -6,9 +6,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xyz66.web.domain.ResponseResult;
 import com.xyz66.web.domain.entity.Article;
 import com.xyz66.web.domain.entity.Comment;
+import com.xyz66.web.domain.entity.Message;
 import com.xyz66.web.service.ArticleService;
 import com.xyz66.web.service.CommentService;
+import com.xyz66.web.service.MessageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -117,6 +120,13 @@ public class ArticleController{
         return ResponseResult.okResult(commentService.lambdaQuery()
                .like(Comment::getContent, "测试")
                .list());
+    }
+    
+    @Autowired
+    private MessageService messageService;
+    @PostMapping("/cs4")
+    public ResponseResult cs4(@RequestBody Message message){
+        return ResponseResult.okResult(message);
     }
 }
 
