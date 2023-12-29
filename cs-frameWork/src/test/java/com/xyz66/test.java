@@ -2,6 +2,7 @@ package com.xyz66;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.junit.platform.commons.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.security.SecureRandom;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -175,7 +177,21 @@ public class test {
         JSONObject name = jsonObject.getJSONObject("name");
         JSON.toJSONString(name);
     }
-    
+
+    @SneakyThrows
+    public String randomTimestamp() {
+        // 获取随机数
+        SecureRandom sha1Random = SecureRandom.getInstance("SHA1PRNG");
+//        System.out.println(JSON.toJSONString(sha1Random));
+        double nextDouble = sha1Random.nextDouble();
+        System.out.println(nextDouble);
+        int threeIntNum = (int) (nextDouble * 900 + 100);
+        return String.valueOf(threeIntNum);
+    }
+    @Test
+    public void cs12(){
+        System.out.println(randomTimestamp());
+    }
 
 
 }
