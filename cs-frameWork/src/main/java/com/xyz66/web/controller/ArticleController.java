@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 
@@ -24,6 +25,7 @@ import java.util.List;
  * @author xyz66 Email:2910223554@qq.com
  * @since 2023-11-28 15:09:13
  */
+//@Valid
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/article")
@@ -125,8 +127,13 @@ public class ArticleController{
     @Autowired
     private MessageService messageService;
     @PostMapping("/cs4")
-    public ResponseResult cs4(@RequestBody Message message){
-        return ResponseResult.okResult(message);
+    public ResponseResult cs4(@Valid @RequestBody Message message){
+        // @Valid 验证实体类
+//        List<Message> list = new ArrayList<>();
+//        list.add(message);
+//        System.out.println(list);
+//        return ResponseResult.okResult("添加成功");
+        return ResponseResult.okResult(messageService.save(message));
     }
 }
 
