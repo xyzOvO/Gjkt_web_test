@@ -7,6 +7,7 @@ import com.xyz66.web.domain.ResponseResult;
 import com.xyz66.web.domain.entity.Article;
 import com.xyz66.web.domain.entity.Comment;
 import com.xyz66.web.domain.entity.Message;
+import com.xyz66.web.domain.entity.MessageLongTest;
 import com.xyz66.web.service.ArticleService;
 import com.xyz66.web.service.CommentService;
 import com.xyz66.web.service.MessageService;
@@ -16,7 +17,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -60,10 +60,10 @@ public class ArticleController{
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public ResponseResult selectOne(@PathVariable Serializable id) {
-        return ResponseResult.okResult(this.articleService.getById(id));
-    }
+//    @GetMapping("{id}")
+//    public ResponseResult selectOne(@PathVariable Serializable id) {
+//        return ResponseResult.okResult(this.articleService.getById(id));
+//    }
 
     /**
      * 新增数据
@@ -134,6 +134,14 @@ public class ArticleController{
 //        System.out.println(list);
 //        return ResponseResult.okResult("添加成功");
         return ResponseResult.okResult(messageService.save(message));
+    }
+    @PostMapping("/cs5")
+    public ResponseResult cs5(@RequestBody MessageLongTest message){
+        // 前端传回来的id精度丢失
+        String s = "d44ee51e44764d41ba1cf334ed3e0af3";
+        Message message1 = new Message();
+        message1.setMessage(message.getMessage().toString());
+        return ResponseResult.okResult(messageService.save(message1));
     }
 }
 
