@@ -1,6 +1,7 @@
 package com.xyz66.cs.cs_2024_1_2;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -67,5 +68,22 @@ public class MyTest {
     public void test3(){
         // 随机生成uuid
         byte[] bytes = randomUUID();
+    }
+    
+    @Test
+    public void test4(){
+        System.out.println(longTest(""));
+    }
+
+    private String longTest(String s) {
+        Long a = null;
+        if (StringUtils.isNotBlank(s)){
+            Long temp = 123L;
+            a = Long.valueOf(temp);
+        }
+        if (a != null) {
+            return a.toString();
+        }
+        return "s为空";
     }
 }
