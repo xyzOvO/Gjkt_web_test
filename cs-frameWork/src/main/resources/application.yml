@@ -28,7 +28,7 @@ mybatis-plus:
       id-type: auto
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mapper/*Mapper.xml
-  # Redis 配置部分开始  
+  # RedisCache 配置部分开始  
   redis:
     # Redis服务器IP地址配置  
     host:
