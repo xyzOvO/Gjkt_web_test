@@ -5,8 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -137,36 +137,41 @@ public class test {
         log.info(stringBuilder.toString());
         boolean blank = StringUtils.isBlank(stringBuilder.toString());
         String s = null;
-        log.info("blank:"+blank);
-        log.info("blank:"+s);
+        log.info("blank:" + blank);
+        log.info("blank:" + s);
     }
+
     @Test
-    public void cs8(){
-        int[] a = new int[]{1,2,3,4,5,6,7,8,9};
+    public void cs8() {
+        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
         // 装箱
         Integer[] array = Arrays.stream(a).boxed().toArray(Integer[]::new);
         for (Integer integer : array) {
             log.info(integer);
         }
     }
+
     @Test
-    public void cs9(){
+    public void cs9() {
         // 拆箱
-        Integer[] a = new Integer[]{1,2,null,4,5,6,7,8,9};
+        Integer[] a = new Integer[]{1, 2, null, 4, 5, 6, 7, 8, 9};
         int[] array = Arrays.stream(a).mapToInt(num -> num == null ? 0 : Integer.valueOf(num)).toArray();
         for (int i = 0; i < array.length; i++) {
             log.info(array[i]);
         }
     }
+
     private static final Logger LOGGER = LoggerFactory.getLogger(test.class);// 通过LoggerFactory获取Logger对象，不加注解的引入方式。
+
     @Test
-    public void cs10(){
+    public void cs10() {
         // String.format,格式化输出
         log.info(String.format("测试: %.3f", 1.23333333));
         LOGGER.info("测试: {}", 1.23333333);
     }
+
     @Test
-    public void cs11(){
+    public void cs11() {
         // 测试JSONObject
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", "张三");
@@ -188,10 +193,31 @@ public class test {
         int threeIntNum = (int) (nextDouble * 900 + 100);
         return String.valueOf(threeIntNum);
     }
+
     @Test
-    public void cs12(){
+    public void cs12() {
         System.out.println(randomTimestamp());
     }
 
+    @Test
+    public void cs13() {
+        String s = " c s ";
+        String s1 = StringUtils.trimToNull(s);
+        System.out.println(s.trim());
+    }
+
+    @Test
+    public void cs14() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            if (i % 33 == 3) {
+                list.add(i);
+            }
+        }
+        List<Integer> collect = list.stream()
+                .filter(i -> i % 6 == 0)
+                .collect(Collectors.toList());
+        log.info(collect);
+    }
 
 }
