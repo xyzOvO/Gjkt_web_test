@@ -26,10 +26,15 @@ public class RedisConfig {
         RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         template.setConnectionFactory(factory);
         // 序列化配置
+        // Jackson2的序列化
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        // FastJson的序列化
+//        FastJson2JsonRedisSerializer jackson2JsonRedisSerializer = new FastJson2JsonRedisSerializer(Object.class);
+
         ObjectMapper om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+//        jackson2JsonRedisSerializer.serialize(om);
         jackson2JsonRedisSerializer.setObjectMapper(om);
         // String的序列化
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();

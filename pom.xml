@@ -134,6 +134,8 @@
             </dependency>
 
             <!--    SpringSecurity在SpringBoot中集成的依赖        -->
+
+
         </dependencies>
     </dependencyManagement>
 </project>

@@ -13,6 +13,8 @@ import com.xyz66.web.service.CommentService;
 import com.xyz66.web.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -138,6 +140,36 @@ public class ArticleController{
     @PostMapping("/cs5")
     public ResponseResult cs5(@RequestBody MessageLongTest message){
         // 前端传回来的id精度丢失
+        String s = "d44ee51e44764d41ba1cf334ed3e0af3";
+        Message message1 = new Message();
+        message1.setMessage(message.getMessage().toString());
+        return ResponseResult.okResult(messageService.save(message1));
+    } 
+    
+//    @CachePut(cacheNames = "TestName",key = "#message.message")// 执行就缓存，动态获取message(Long)字段
+    @Cacheable(value = "cs",key = "#message.message",unless = "#message==null")
+    @PostMapping("/cs6")
+    public ResponseResult cs6(@RequestBody MessageLongTest message){
+        // 测试spring-cache
+        String s = "d44ee51e44764d41ba1cf334ed3e0af3";
+        Message message1 = new Message();
+        message1.setMessage(message.getMessage().toString());
+        return ResponseResult.okResult(messageService.save(message1));
+    } 
+    @CacheEvict(value = "cs",key = "#message.message",allEntries = true)// 根据缓存名称清空所有数据
+    @PostMapping("/cs7")
+    public ResponseResult cs7(@RequestBody MessageLongTest message){
+        // 清楚全部缓存
+        String s = "d44ee51e44764d41ba1cf334ed3e0af3";
+        Message message1 = new Message();
+        message1.setMessage(message.getMessage().toString());
+        return ResponseResult.okResult(messageService.save(message1));
+    }
+
+    @Cacheable(value = "cs8",key = "#message.message",unless = "#message==null")// 存入数据库的操作不要这样玩，程序会直接从内存读方法运行，直接不跑方法体就只能存一次数据库
+    @PostMapping("/cs8")
+    public ResponseResult cs8(@RequestBody MessageLongTest message){
+        // 看看耗时
         String s = "d44ee51e44764d41ba1cf334ed3e0af3";
         Message message1 = new Message();
         message1.setMessage(message.getMessage().toString());
