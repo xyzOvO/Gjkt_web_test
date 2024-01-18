@@ -2,7 +2,8 @@ package com.xyz66;
 
 import com.xyz66.web.service.TestService;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.Resource;
 
@@ -11,13 +12,14 @@ import javax.annotation.Resource;
  * @description
  * @since 2024/1/18 18:30
  */
-@SpringBootTest
+@SpringBootApplication
 public class Action {
     @Resource
-    private TestService testService;
+//    @Autowired
+    private TestService testService;// 手动装配要去扫描
     @Test
     public void main() {
-        // 测试注入
-        System.out.println(testService.test());
+        // 测试注入->去12/18-Cs.java
+        SpringApplication.run(Action.class);
     }
 }
