@@ -10,5 +10,8 @@
         <module name="cs-frameWork" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MiniSpringMVC" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

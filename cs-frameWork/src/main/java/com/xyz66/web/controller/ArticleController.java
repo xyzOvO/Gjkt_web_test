@@ -159,7 +159,7 @@ public class ArticleController{
     @CacheEvict(value = "cs",key = "#message.message",allEntries = true)// 根据缓存名称清空所有数据
     @PostMapping("/cs7")
     public ResponseResult cs7(@RequestBody MessageLongTest message){
-        // 清楚全部缓存
+        // 清空全部缓存
         String s = "d44ee51e44764d41ba1cf334ed3e0af3";
         Message message1 = new Message();
         message1.setMessage(message.getMessage().toString());
